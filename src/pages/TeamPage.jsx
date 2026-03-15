@@ -30,15 +30,15 @@ const TeamPage = () => {
           {/* 1) 포스터 + 팀명/설명 */}
           <section className="flex flex-col md:flex-row md:justify-end md:items-end gap-6 md:gap-0">
             {/* 텍스트: 포스터 바로 왼쪽 + 폭 제한 */}
-            <div className="order-2 md:order-1 md:pr-0 md:mr-6 md:w-[320px] md:flex-shrink-0">
-              <h2 className="text-base text-right font-medium mb-3">{team.name}</h2>
-              <p className="whitespace-pre-line text-sm leading-relaxed text-black/80">
+            <div className="order-2 md:order-1 w-full max-w-[290px] mx-auto md:mx-0 md:pr-0 md:mr-6 md:w-[320px] md:flex-shrink-0">
+              <h2 className="text-base text-left md:text-right font-medium mb-3">{team.name}</h2>
+              <p className="whitespace-pre-line text-sm leading-relaxed text-black/80 text-center md:text-left">
                 {team.description}
               </p>
             </div>
 
             {/* 포스터: 원하는 크기로(여기서 조절) */}
-            <div className="order-1 md:order-2 w-full md:w-[440px]">
+            <div className="order-1 md:order-2 w-full max-w-[290px] mx-auto md:mx-0 md:max-w-none md:w-[390px] xl:w-[440px] 2xl:w-[480px]">
               <div className="w-full aspect-[3/4] bg-white overflow-hidden">
                 <img
                   src={team.poster}
@@ -51,8 +51,8 @@ const TeamPage = () => {
           </section>
 
           {/* 2) 티저 영상 */}
-          <section className="mt-16">
-            <div className="w-full aspect-video border border-black/20 bg-black">
+          <section className="mt-14 md:mt-16">
+            <div className="w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 aspect-video border border-black/20 bg-black">
               <iframe
                 className="w-full h-full"
                 src={`https://www.youtube.com/embed/${team.youtubeId}`}
@@ -64,15 +64,16 @@ const TeamPage = () => {
           </section>
 
           {/* 3) 팀 구성원 */}
-          <section className="mt-16">
-            <h3 className="text-base font-semibold mb-6">TEAM {team.name}</h3>
+          <section className="mt-14 md:mt-16">
+            <div className="w-full max-w-[340px] mx-auto md:max-w-none md:mx-0">
+              <h3 className="text-base font-semibold mb-6">TEAM {team.name}</h3>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-9 md:gap-x-6 md:gap-y-14">
               {members.map((member) => (
                 <Link
                   key={member.name}
                   to={`/portfolio/${member.portfolioUrl}`}
-                  className="block group"
+                  className="block group w-full max-w-[150px] md:max-w-[255px] mx-auto"
                 >
                   <div
                     className="bg-white relative overflow-hidden"
@@ -91,6 +92,7 @@ const TeamPage = () => {
                   </div>
                 </Link>
               ))}
+              </div>
             </div>
           </section>
         </div>

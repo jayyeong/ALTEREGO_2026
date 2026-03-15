@@ -57,8 +57,8 @@ const Header = () => {
    */
   const menus = useMemo(
     () => [
-      { label: 'INFO', path: '/show-info/exhibition' },
-      { label: 'PROJECT', path: '/project/main-theme' },
+      { label: 'INFO', path: '/show-info' },
+      { label: 'PROJECT', path: '/project/' },
       {
         label: 'IMAGE',
         path: '/project/look-book',
@@ -187,25 +187,25 @@ const Header = () => {
             </ul>
 
             {/* ✅ 2차 메뉴 (세로) */}
-            {hoveredMenu && menus.find(m => m.label === hoveredMenu)?.subItems?.length > 0 && (
-              <div className="absolute left-0 top-full w-full">
-                <div className="relative mt-3">
-                  <div
-                    className="absolute top-0"
-                    style={{ left: dropdownPos.left }}
-                    onMouseEnter={() => setHoveredMenu(hoveredMenu)}
-                  >
-                    <ul className="flex flex-col items-start gap-1">
-                      {menus
-                        .find(m => m.label === hoveredMenu)
-                        ?.subItems.map((sub) => (
-                          <li key={sub.name}>
-                            <Link
-                              to={sub.path}
-                              className="text-sm font-semibold text-black hover:text-black/60 transition"
-                              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                              onClick={() => setHoveredMenu(null)}
-                            >
+	            {hoveredMenu && menus.find(m => m.label === hoveredMenu)?.subItems?.length > 0 && (
+	              <div className="absolute left-0 top-full w-full z-50">
+	                <div className="relative mt-3">
+	                  <div
+	                    className="absolute top-0 min-w-[140px] rounded-md border border-black/15 bg-white/95 backdrop-blur-sm shadow-lg px-4 py-3"
+	                    style={{ left: dropdownPos.left }}
+	                    onMouseEnter={() => setHoveredMenu(hoveredMenu)}
+	                  >
+	                    <ul className="flex flex-col w-full divide-y divide-black/10">
+	                      {menus
+	                        .find(m => m.label === hoveredMenu)
+	                        ?.subItems.map((sub) => (
+	                          <li key={sub.name} className="w-full">
+	                            <Link
+	                              to={sub.path}
+	                              className="block w-full py-2 text-sm font-semibold text-black hover:text-black/60 transition"
+	                              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+	                              onClick={() => setHoveredMenu(null)}
+	                            >
                               {sub.name}
                             </Link>
                           </li>

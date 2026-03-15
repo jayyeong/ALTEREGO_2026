@@ -2,7 +2,7 @@
   "name": "kuad_project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/2025/",
+  "homepage": "/2026/",
   "dependencies": {
     "axios": "^1.7.9",
     "cra-template": "1.2.0",

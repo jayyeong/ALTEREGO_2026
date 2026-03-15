@@ -1,20 +1,20 @@
 import React from "react";
 
 const imagePaths = [
-  "/2025/behind/making/001.jpeg",
-  "/2025/behind/making/002.jpeg",
-  "/2025/behind/making/003.jpeg",
-  "/2025/behind/making/004.jpeg",
-  "/2025/behind/making/005.jpeg",
-  "/2025/behind/making/006.jpeg",
-  "/2025/behind/making/007.jpeg",
-  "/2025/behind/making/008.jpeg",
-  "/2025/behind/making/010.jpeg",
-  "/2025/behind/making/011.jpeg",
-  "/2025/behind/making/012.jpeg",
-  "/2025/behind/making/013.jpeg",
-  "/2025/behind/making/014.jpeg",
-  "/2025/behind/making/015.jpeg",
+  "/2026/behind/making/001.jpeg",
+  "/2026/behind/making/002.jpeg",
+  "/2026/behind/making/003.jpeg",
+  "/2026/behind/making/004.jpeg",
+  "/2026/behind/making/005.jpeg",
+  "/2026/behind/making/006.jpeg",
+  "/2026/behind/making/007.jpeg",
+  "/2026/behind/making/008.jpeg",
+  "/2026/behind/making/010.jpeg",
+  "/2026/behind/making/011.jpeg",
+  "/2026/behind/making/012.jpeg",
+  "/2026/behind/making/013.jpeg",
+  "/2026/behind/making/014.jpeg",
+  "/2026/behind/making/015.jpeg",
 ];
 
 export default function BehindMaking() {
