@@ -37,7 +37,9 @@ const ProjectPage = () => {
         {/* 모바일: 1열(네 코드 의도 유지) */}
         <div className="grid grid-cols-1 gap-y-10 md:hidden">
           {teams.map((team, idx) => (
-            <TeamCard key={idx} team={team} />
+            <div key={idx} className="w-[82%] mx-auto">
+              <TeamCard team={team} />
+            </div>
           ))}
         </div>
 

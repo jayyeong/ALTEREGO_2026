@@ -99,9 +99,9 @@ export default function Home() {
     }, [currentIndex]);
 
     return (
-        <div className="bg-white text-black overflow-x-hidden overflow-y-hidden">
-            <div className="h-[calc(100dvh-88px)] lg:h-[calc(100dvh-88px)]">
-                <div className="h-full mx-auto px-6 lg:px-10 py-10 lg:py-14">
+        <div className="bg-white text-black overflow-x-hidden">
+            <div className="min-h-[calc(100dvh-88px)] lg:h-[calc(100dvh-88px)]">
+                <div className="mx-auto px-6 lg:px-10 py-10 lg:py-14 lg:h-full">
                     <div className="h-full flex flex-col lg:flex-row gap-10 lg:gap-2 justify-between">
 
                         {/* LEFT */}
@@ -139,7 +139,7 @@ export default function Home() {
                             <div className="w-full flex flex-col lg:flex-row lg:items-end justify-end gap-2 lg:gap-2">
 
                                 {/* ✅ 영상 바로 왼쪽 캡션 (검은 글씨) */}
-                                <div className="order-2 lg:order-1 lg:w-[260px] flex-shrink-0 text-right">
+                                <div className="order-2 lg:order-1 lg:w-[260px] flex-shrink-0 text-left">
                                     <p className="text-[14px] font-semibold text-black">
                                         {current.captionTitle}
                                     </p>

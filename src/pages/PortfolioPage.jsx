@@ -25,71 +25,61 @@ const PortfolioPage = () => {
   })) || [];
 
   return (
-    <div className="max-w-[1140px] mx-auto px-4 py-8 md:py-10">
-      {/* 프로필 영역 */}
-      <section className="flex items-start md:items-end md:justify-end gap-4 md:gap-2">
-        <div className="w-[150px] sm:w-[170px] md:w-[320px] flex-shrink-0 pt-1 md:pb-1">
-          <h1 className="text-base md:text-xl font-semibold leading-tight">
-            {member.name}
-          </h1>
-          <p className="text-sm md:text-base text-black/80 mt-1">{member.englishName}</p>
+    <>
+      {/* Mobile */}
+      <div className="md:hidden max-w-[1140px] mx-auto px-4 py-8">
+        <section className="flex items-start gap-4">
+          <div className="w-[150px] flex-shrink-0 pt-1">
+            <h1 className="text-base font-semibold leading-tight">{member.name}</h1>
+            <p className="text-sm text-black/80 mt-1">{member.englishName}</p>
+            {(member.email || member.instagram) && (
+              <div className="mt-4 space-y-2 text-xs">
+                {member.email && (
+                  <a href={`mailto:${member.email}`} className="flex items-start gap-2 text-black hover:no-underline">
+                    <Mail size={16} strokeWidth={1.5} className="mt-0.5 shrink-0" />
+                    <span>{member.email}</span>
+                  </a>
+                )}
+                {member.instagram && (
+                  <a
+                    href={`https://instagram.com/${member.instagram.replace('@', '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-2 text-black hover:no-underline"
+                  >
+                    <Instagram size={16} strokeWidth={1.5} className="mt-0.5 shrink-0" />
+                    <span>{member.instagram}</span>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
 
-          {(member.email || member.instagram) && (
-            <div className="mt-5 md:mt-4 space-y-2 text-xs md:text-sm">
-              {member.email && (
-                <a
-                  href={`mailto:${member.email}`}
-                  className="flex items-start gap-2 text-black hover:no-underline"
-                >
-                  <Mail size={16} strokeWidth={1.5} className="mt-0.5 shrink-0" />
-                  <span className="whitespace-nowrap">{member.email}</span>
-                </a>
-              )}
-
-              {member.instagram && (
-                <a
-                  href={`https://instagram.com/${member.instagram.replace('@', '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2 text-black hover:no-underline break-all"
-                >
-                  <Instagram size={16} strokeWidth={1.5} className="mt-0.5 shrink-0" />
-                  <span>{member.instagram}</span>
-                </a>
-              )}
-            </div>
-          )}
-        </div>
-
-        <div className="flex-1 min-w-0 flex justify-end md:flex-none">
-          <div className="w-full max-w-[180px] md:w-[320px] md:max-w-[320px]">
-            <div className="aspect-[3/4] bg-white">
-              <img
-                src={require(`../${member.profileImageUrl}`)}
-                alt={`${member.name} profile`}
-                className="w-full h-full object-contain"
-              />
+          <div className="flex-1 min-w-0 flex justify-end">
+            <div className="w-full max-w-[180px] mx-auto">
+              <div className="aspect-[3/4] bg-white">
+                <img
+                  src={require(`../${member.profileImageUrl}`)}
+                  alt={`${member.name} profile`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 프로젝트 영역: 텍스트 왼쪽, 작품 이미지 오른쪽(세로 나열) */}
-      <section className="mt-20 md:mt-24 flex items-start gap-4 md:gap-10">
-        <div className="w-[150px] sm:w-[170px] md:w-[320px] flex-shrink-0 pt-1">
+        <section className="mt-10">
           {member.projectTitle && (
-            <h2 className="text-sm md:text-2xl font-bold leading-snug break-words">
-              {member.projectTitle}
-            </h2>
+            <h2 className="text-lg font-bold leading-snug break-words">{member.projectTitle}</h2>
           )}
           {member.description && (
-            <p className="mt-3 md:mt-4 text-xs md:text-sm whitespace-pre-line leading-relaxed text-black/85">
+            <p className="mt-3 text-sm whitespace-pre-line leading-relaxed text-black/85">
               {member.description}
             </p>
           )}
-        </div>
+        </section>
 
-        <div className="flex-1 min-w-0">
+        <section className="mt-8 space-y-3">
           {mediaItems.length ? (
             mediaItems.map((item, idx) => (
               <div key={`${item.type}-${idx}`} className="w-full">
@@ -118,9 +108,108 @@ const PortfolioPage = () => {
           ) : (
             <p className="text-sm text-black/70">표시할 작품 이미지가 없습니다.</p>
           )}
+        </section>
+      </div>
+
+      {/* Desktop */}
+      <div className="hidden md:block w-full bg-white">
+        <div className="w-full pr-6 lg:pr-8">
+          <div className="grid grid-cols-[260px_360px_minmax(0,1fr)] gap-8 lg:gap-10 items-start">
+            <aside className="sticky top-0 self-start bg-[#f1f1f1] min-h-[100dvh]">
+              <div className="p-5">
+                <div className="w-full max-w-[180px] mx-auto">
+                  <div className="bg-white overflow-hidden">
+                    <img
+                      src={require(`../${member.profileImageUrl}`)}
+                      alt={`${member.name} profile`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-6 space-y-3 text-black">
+                  <p className="text-xl font-semibold leading-none">{member.name}</p>
+                  <p className="text-base text-black/80">{member.englishName}</p>
+                </div>
+
+                {(member.email || member.instagram) && (
+                  <div className="mt-8 space-y-2 text-base leading-tight">
+                    {member.instagram && (
+                      <a
+                        href={`https://instagram.com/${member.instagram.replace('@', '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-2 text-black hover:no-underline"
+                      >
+                        <Instagram size={16} strokeWidth={1.5} className="mt-1 shrink-0" />
+                        <span className="break-all">{member.instagram}</span>
+                      </a>
+                    )}
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="flex items-start gap-2 text-black hover:no-underline"
+                      >
+                        <Mail size={16} strokeWidth={1.5} className="mt-1 shrink-0" />
+                        <span className="break-all">{member.email}</span>
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            </aside>
+
+            <section className="pt-4 pl-20">
+              {member.projectTitle && (
+                <h2 className="text-xl font-bold leading-[1.2] break-words">
+                  {member.projectTitle}
+                </h2>
+              )}
+              {member.description && (
+                <p className="mt-5 text-xs leading-relaxed whitespace-pre-line text-black/85">
+                  {member.description}
+                </p>
+              )}
+            </section>
+
+            <section className="pt-2 pr-24">
+              {mediaItems.length ? (
+                <div className="grid grid-cols-1 gap-4">
+                  {mediaItems.map((item, idx) => (
+                    <div key={`${item.type}-${idx}`} className="w-full">
+                      {item.type === "image" ? (
+                        <div className="w-full aspect-[3/4] overflow-hidden bg-white">
+                          <img
+                            src={require(`../${item.src}`)}
+                            alt={`작품 이미지 ${idx + 1}`}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-full aspect-[3/4]">
+                          <iframe
+                            title={`iframe-${idx}`}
+                            src={item.src}
+                            frameBorder="0"
+                            width="100%"
+                            height="100%"
+                            allowFullScreen
+                            className="w-full h-full"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-black/70">표시할 작품 이미지가 없습니다.</p>
+              )}
+            </section>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 };
 
