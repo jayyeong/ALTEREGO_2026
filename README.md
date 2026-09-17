@@ -1,3 +1,17 @@
+# KUAD 2026 ALTER EGO · 이전 CRA 구현
+
+> **현재 프로젝트는 [ALTEREGO_2026_VITE](https://github.com/jayyeong/ALTEREGO_2026_VITE)에서 확인해주세요.**
+>
+> 이 저장소는 Create React App 기반의 이전 구현입니다. 최신 프로젝트 소개, 실행 방법, 전시·스토어 구현 및 배포 설정은 새 저장소의 README를 기준으로 확인해주세요.
+
+- [현재 프로젝트 README](https://github.com/jayyeong/ALTEREGO_2026_VITE#readme)
+- [KUAD 2026 사이트](https://www.kuadarchive.com/2026/)
+- [현재 프로젝트 변경 기록](https://github.com/jayyeong/ALTEREGO_2026_VITE/pulls?q=is%3Apr+is%3Amerged)
+
+아래에는 이전 구현의 실행 안내를 보존합니다.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
